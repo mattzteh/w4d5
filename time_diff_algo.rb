@@ -42,7 +42,7 @@ def largest_contiguous_subsum2(arr)
 
     longest_sum = 0
     curr_sum = 0
-    arr.each_with_index do |ele, idx|
+    arr.each_index do |idx|
         curr_sum += arr[idx]
         if curr_sum < 0
             curr_sum = 0
