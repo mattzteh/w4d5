@@ -36,15 +36,19 @@
     
 # end
 
-# def hash_map(arr, target_sum)
-#     hash = arr.tally
-#     (0...arr.length).each do |i|
-#         target = target_sum - arr[i]
-#         if hash.has_key?(target)
-#             return true
-#         end
-#     end
-#     false
-# end
+def hash_map(arr, target_sum)
+    hash = arr.tally
+    hash.each do |k,v|
+        target = target_sum - k
+        hash.shift unless v > 1
+        if hash.has_key?(target)
+            return true
+        end
+    end
+    false
+end
 
-# p hash_map([3,2,1,4,6], 10)
+p hash_map([3,2,1,4,6], 12)
+p hash_map([5,3,1], 10)
+p hash_map([3,2,1,4,6], 9)
+p hash_map([3,2,5,4,5], 10)
